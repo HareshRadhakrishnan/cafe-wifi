@@ -1,0 +1,30 @@
+.container-mid {
+  background-color: #ffe6a7;
+  padding: 5%;
+  margin: 2% auto 2%;
+}
+.link{
+  color: #432818;
+}
+.link:hover{
+  color: #99582a;
+}
+img{
+  height: 100% ;
+  width: 100% ;
+}
+.fas{
+  color: #99582a;
+}
+.fas:hover{
+  color: #432818;
+}
+.btn-dark:hover{
+  background-color: #432818;
+}
+.btn-dark{
+  background-color: #99582a;
+}
+.del{
+  align-self: left;
+}

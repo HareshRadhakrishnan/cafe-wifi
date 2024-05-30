@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Cafe Map </title>
+</head>
+<body>
+{% include 'header.html'%}
+<div class="container">
+  {%for cafe in cafes:%}
+  <div class="container container-mid">
+    <div class="row ">
+      <div class="col-md-4 col-sm-12">
+        <img src="{{cafe.img_url}}" alt="">
+      </div>
+      <div class="col-md-8 col-sm-12">
+        <div class="row">
+          <h2>{{cafe.name}}</h2>
+        </div>
+        <div class="row">
+          <h3 class="col-sm-6"><a class="link" href="{{cafe.map_url}}">{{cafe.location}}</a></h3>
+        </div>
+        <div class="row">
+          <h4 class="col-sm-6"> Price Per Coffee : {{cafe.coffee_price}}</h4>
+          <h4 class="col-sm-6"> {{cafe.seats}} Seats</h4>
+        </div>
+        <div class="row">
+          {% if cafe.has_sockets:%}
+            <i class="fas fa-plug fa-2x col-sm-3"></i>
+          {% endif %}
+          {% if cafe.has_toilet:%}
+            <i class="fas fa-toilet fa-2x col-sm-3"></i>
+          {% endif %}
+          {% if cafe.has_wifi:%}
+            <i class="fas fa-wifi fa-2x col-sm-3"></i>
+          {% endif %}
+          {% if cafe.can_take_calls:%}
+            <i class="fas fa-phone fa-2x col-sm-3"></i>
+          {% endif %}
+          <a class="btn-dark col-sm-2 del" href="{{url_for('delete', cafe_id= cafe.id)}}"> Delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {%endfor%}
+  <div class="row">
+      <a class="btn btn-dark" href="{{ url_for('add_cafe')}}">Add a New Cafe</a>
+  </div>
+
+</div>
+</body>
+</html>
